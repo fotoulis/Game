@@ -1,0 +1,24 @@
+import random
+
+rps = ["rock", "paper", "scissors"]
+print("Let's play rock, paper, scissors")
+
+done = False
+while done == False:
+    r = random.randint(0, 2)
+    opts = ["r", "p", "s"]
+    u = input("choose rock paper or scissors " + str(opts) + ": ")
+    if u not in opts:
+        print("bad option")
+    uo = None
+    for i in range(len(rps)):
+        if rps[i][0] == u:
+            print("you chose " + rps[i])
+            uo = i
+    print("i chose " + rps[r])
+    if uo == r:
+        print("it's a draw. play again.")
+    elif (r - uo == 1) or (r == 0 and uo == 2):
+        print("i win")
+    else:
+        print("you win")
